@@ -12,6 +12,11 @@ public class InfoPopulation : MonoBehaviour
     public TextMeshProUGUI unitAttack;
     public TextMeshProUGUI unitDefense;
     public TextMeshProUGUI unitHealth;
+    public TextMeshProUGUI unitSpeed;
+    public TextMeshProUGUI unitCrit;
+    public TextMeshProUGUI unitDebuffResist;
+    public TextMeshProUGUI unitEvasion;
+    //public TextMeshProUGUI unitHealthResist;
     public GameObject unitInfoPanel;
     public GridMovement gridMovement;
     public UnitInfo selectedObject;

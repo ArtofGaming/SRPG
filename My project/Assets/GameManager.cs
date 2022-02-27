@@ -16,20 +16,31 @@ public class GameManager : MonoBehaviour
     UnitInfo attackingEnemyInfo;
     InfoPopulation infoPopulation;
     public string whoseTurn = "none";
+    Customization customization;
+
 
     //have units deselect at the end of turn
     //control health gain/loss
     //control win/loss condition
     //control death
     // Start is called before the first frame update
+
     void Start()
     {
         gridMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<GridMovement>();
         infoPopulation = GameObject.Find("god").GetComponent<InfoPopulation>();
+        customization = GameObject.Find("boss").GetComponent<Customization>();
 
-        foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Player"))
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        {
+            Debug.Log(GameObject.FindGameObjectsWithTag("Spawn").Length);
+            
+        }
+        foreach (GameObject unit in customization.units)
         {
             aliveUnits.Add(unit);
+            unit.gameObject.transform.localPosition = GameObject.FindGameObjectsWithTag("Spawn")[customization.units.IndexOf(unit)].gameObject.transform.localPosition;
+            unit.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
         foreach (GameObject unit in GameObject.FindGameObjectsWithTag("Enemy"))
         {
@@ -38,7 +49,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        startButton = GameObject.Find("StartButton").GetComponent<Button>();
+        //startButton = GameObject.Find("StartButton").GetComponent<Button>();
         
     }
 
@@ -62,7 +73,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You Win!");
         }
-        
+        if (Input.GetMouseButtonDown(1))
+        {
+            gridMovement.selectedUnit.GetComponent<Renderer>().material.color = Color.green;
+                
+        }
     }
     public void Attack()
     {

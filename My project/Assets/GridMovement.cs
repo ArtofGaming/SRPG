@@ -6,15 +6,16 @@ using UnityEngine.UI;
 public class GridMovement : MonoBehaviour
 {
     public RaycastHit hit;
-    public string selected;
+    public string selected = "";
     Collider myCollider;
-    private int movementReach = 0;
+    private float movementReach = 0;
     public bool moved = false;
     public Material movementMaterial;
     public GameObject selectedUnit;
     public GameObject selectedEnemy;
     public bool attackPossible;
-    public string whoseTurn = "none";
+    public string unitClass;
+    
 
     //show movement and other actions possible
 
@@ -22,7 +23,7 @@ public class GridMovement : MonoBehaviour
     void Start()
     {
         attackPossible = false;
-}
+    }
 
 
     // Update is called once per frame
@@ -43,9 +44,9 @@ public class GridMovement : MonoBehaviour
                         selectedUnit = hit.collider.gameObject;
                         Debug.Log(hit.collider.gameObject);
                         // Calculate the squares that unit can move to
-                        movementReach = 5;
+                        movementReach = .15f;
                         // Show area that is movable
-                        selectedUnit.transform.GetChild(0).localScale = new Vector3((float)movementReach, (float).1, (float)movementReach);
+                        selectedUnit.transform.GetChild(0).localScale = new Vector3((float)movementReach, (float).002, (float)movementReach);
                         myCollider = hit.collider.gameObject.GetComponentInChildren<MeshCollider>();
                         myCollider.gameObject.GetComponentInChildren<Renderer>().material = movementMaterial;
                         selectedUnit = hit.collider.gameObject;
