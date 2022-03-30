@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitInfo : MonoBehaviour
 {
     public string unitName;
+    [HideInInspector]
     public int unitLevel;
     public int currentUnitExperience;
     public int maxUnitExperience;
@@ -13,13 +14,14 @@ public class UnitInfo : MonoBehaviour
     public int unitDefense;
     public int unitHealth;
     public float unitMovementSpeed;
+    public float unitAttackRange;
     public int unitEvasion;
     public int unitCritChance;
     public int unitMaxHealth;
     public string unitSkill;
     public string unitWeapon;
     public int unitEnergy;
-    public int unitDebuffResist;
+    public int unitSkillResist;
     Customization customization;
 
     // Start is called before the first frame update

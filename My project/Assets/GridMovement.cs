@@ -6,15 +6,20 @@ using UnityEngine.UI;
 public class GridMovement : MonoBehaviour
 {
     public RaycastHit hit;
+    public Ray ray;
     public string selected = "";
     Collider myCollider;
     private float movementReach = 0;
     public bool moved = false;
     public Material movementMaterial;
-    public GameObject selectedUnit;
-    public GameObject selectedEnemy;
     public bool attackPossible;
     public string unitClass;
+    public Customization customization;
+    GameManager gameManager;
+    public bool added = false;
+    int unitsMoved = 0;
+    public Collider collider;
+    public InfoPopulation infoPopulation;
     
 
     //show movement and other actions possible
@@ -23,6 +28,10 @@ public class GridMovement : MonoBehaviour
     void Start()
     {
         attackPossible = false;
+        customization = GameObject.Find("boss").GetComponent<Customization>();
+        gameManager = GameObject.Find("god").GetComponent<GameManager>();
+        gameManager.selectedUnit = gameManager.aliveUnits[0];
+        infoPopulation = GameObject.Find("Unit Information").GetComponent<InfoPopulation>();
     }
 
 
@@ -30,74 +39,50 @@ public class GridMovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-          
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                
-                if (hit.collider.gameObject.tag == "Player" && selectedUnit == null)
-                {
-                    if(selected != "player")
-                    {
-                        selectedUnit = hit.collider.gameObject;
-                        Debug.Log(hit.collider.gameObject);
-                        // Calculate the squares that unit can move to
-                        movementReach = .15f;
-                        // Show area that is movable
-                        selectedUnit.transform.GetChild(0).localScale = new Vector3((float)movementReach, (float).002, (float)movementReach);
-                        myCollider = hit.collider.gameObject.GetComponentInChildren<MeshCollider>();
-                        myCollider.gameObject.GetComponentInChildren<Renderer>().material = movementMaterial;
-                        selectedUnit = hit.collider.gameObject;
-                        selected = "player";
-                    }
-
-                }
-                else
-                {
-                    Debug.Log("Yes");
-                    if (Physics.Raycast(ray, out hit, 100))
-                    {
-                        Debug.Log("Clicked");
-                        Debug.Log(hit.point);
-                        // if point selected is in allowed range and unit has not moved yet
-                        if (hit.collider.GetComponent<MeshCollider>() != null && !moved )
-                        {
-                            //me.transform.position = lastPosition;
-
-                            //.1 is to maintain the unit's height value
-                            selectedUnit.transform.position = new Vector3(hit.point.x, (float).1, hit.point.z);
-                            selectedUnit.GetComponentInChildren<MeshCollider>().material = null;
-                            selectedUnit.GetComponent<GridMovement>().moved = true;
-                            
-                            
-
-                        }
-
-                    }
-                    if (hit.collider.gameObject.tag == "Enemy")
-                    {
-                        selected = "enemy";
-                        //OnTriggerEnter(hit.collider);
-                        selectedEnemy = hit.collider.gameObject;
-                        attackPossible = true;
-
-                    }
-
-                }
-                
-            }
-        }
-        
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnMouseDown()
     {
-        Debug.Log("TRIGGERED");
-        Debug.Log(other);
         
-        
+        gameManager.selectedUnit = collider.transform.parent.gameObject;
+        if (gameManager.selectedUnit.tag == "Player" && gameManager.whoseTurn == "Player" && selected != "player")
+        {
+            Debug.Log("Mouse Down");
+            // Calculate the squares that unit can move to
+            movementReach = gameManager.selectedUnit.GetComponent<UnitInfo>().unitMovementSpeed;
+            // Show area that is movable
+            gameManager.selectedUnit.transform.GetChild(0).localScale = new Vector3((float)movementReach, (float).002, (float)movementReach);
+            myCollider = gameManager.selectedUnit.GetComponentInChildren<MeshCollider>();
+            myCollider.gameObject.GetComponentInChildren<Renderer>().material = movementMaterial;
+            selected = "player";
+            gameManager.gridMovement = gameManager.selectedUnit.GetComponentInChildren<GridMovement>();
+        }
+        else
+        {
+            // if point selected is in allowed range and unit has not moved yet
+            if (gameManager.selectedUnit.GetComponentInChildren<GridMovement>().moved == false)
+            {
+                Debug.Log("Moving");
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Physics.Raycast(ray, out hit);
+                gameManager.selectedUnit.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+                gameManager.selectedUnit.GetComponentInChildren<GridMovement>().moved = true;
+                gameManager.selectedUnit.transform.GetChild(0).localScale = new Vector3((float).05, (float).005, (float).05);
+
+            }
+        }        
+    }
+
+    private void OnMouseOver()
+    {
+        infoPopulation.selectedCollider = this.gameObject.GetComponent<Collider>();
+        infoPopulation.Activate();
+    }
+
+    private void OnMouseExit()
+    {
+        infoPopulation.selectedCollider = null;
+        infoPopulation.unitInfoPanel.GetComponent<RectTransform>().localPosition = new Vector3(2000, 1000, 1000);
     }
 
 }

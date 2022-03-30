@@ -18,78 +18,90 @@ public class InfoPopulation : MonoBehaviour
     public TextMeshProUGUI unitEvasion;
     //public TextMeshProUGUI unitHealthResist;
     public GameObject unitInfoPanel;
-    public GridMovement gridMovement;
+    public GameManager gameManager;
     public UnitInfo selectedObject;
+    public GridMovement gridMovement;
+    public Collider selectedCollider;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-
-        gridMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<GridMovement>();
+        gameManager = GameObject.Find("god").GetComponent<GameManager>();
+        gridMovement = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<GridMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gridMovement.selected == "player")
+        
+    }
+
+    public void Activate()
+    {
+        if (selectedCollider.gameObject.tag == "Player")
         {
-            selectedObject = gridMovement.selectedUnit.GetComponent<UnitInfo>();
+            selectedObject = selectedCollider.gameObject.GetComponentInParent<UnitInfo>();
+            gridMovement = selectedCollider.gameObject.GetComponentInChildren<GridMovement>();
 
             unitInfoPanel.SetActive(true);
-            
-            if (gridMovement.selectedUnit.transform.position.x > 0)
+
+            if (selectedCollider.gameObject.transform.position.x > 0)
             {
-                unitInfoPanel.GetComponent<RectTransform>().localPosition = new Vector3(gridMovement.hit.point.x + gridMovement.selectedUnit.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
+                unitInfoPanel.GetComponent<RectTransform>().localPosition = new Vector3(gridMovement.hit.point.x + selectedCollider.gameObject.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
             }
-            else if (gridMovement.selectedUnit.transform.position.x == 0)
+            else if (selectedCollider.gameObject.transform.position.x == 0)
             {
                 unitInfoPanel.GetComponent<RectTransform>().localPosition = new Vector3(gridMovement.hit.point.x + 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
             }
             else
             {
-                unitInfoPanel.GetComponent<RectTransform>().localPosition = new Vector3(gridMovement.hit.point.x + gridMovement.selectedUnit.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
+                unitInfoPanel.GetComponent<RectTransform>().localPosition = new Vector3(gridMovement.hit.point.x + selectedCollider.gameObject.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
             }
             //unitInfoPanel.transform.position = new Vector3(gridMovement.hit.point.x + 100, 0, gridMovement.hit.point.z);
-
-            unitNameText.text = selectedObject.unitName;
-            unitLevel.text = selectedObject.unitLevel.ToString();
-            unitClass.text = selectedObject.unitClass;
-            unitAttack.text = selectedObject.unitAttack.ToString();
-            unitDefense.text = selectedObject.unitDefense.ToString();
-            unitHealth.text = selectedObject.unitHealth.ToString();
+            unitNameText.text = "Name: " + selectedObject.unitName;
+            unitLevel.text = "Lv: " + selectedObject.unitLevel.ToString();
+            unitClass.text = "Class: " + selectedObject.unitClass;
+            unitAttack.text = "Attack: " + selectedObject.unitAttack.ToString();
+            unitDefense.text = "Def: " + selectedObject.unitDefense.ToString();
+            unitHealth.text = "HP: " + selectedObject.unitHealth.ToString();
+            unitSpeed.text = "Speed: " + selectedObject.unitMovementSpeed.ToString();
+            unitCrit.text = "Crit Chance: " + selectedObject.unitCritChance.ToString();
+            unitDebuffResist.text = "Debuff Res.: " + selectedObject.unitSkillResist.ToString();
+            unitEvasion.text = "Evasion: " + selectedObject.unitEvasion.ToString();
         }
-        else if (gridMovement.selected == "enemy")
+        else if (selectedCollider.gameObject.tag == "Enemy")
         {
-            selectedObject = gridMovement.selectedEnemy.GetComponent<UnitInfo>();
+            selectedObject = selectedCollider.gameObject.GetComponent<UnitInfo>();
 
-            unitInfoPanel.SetActive(true);
             //Debug.Log(gridMovement.hit.point);
-            if (gridMovement.selectedEnemy.transform.position.x > 0)
+            if (selectedCollider.gameObject.transform.position.x > 0)
             {
-                Debug.Log(gridMovement.selectedEnemy.transform.position.x*400);
-                unitInfoPanel.GetComponent<RectTransform>().transform.parent.position = new Vector3(gridMovement.hit.point.x + gridMovement.selectedEnemy.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
+                Debug.Log(selectedCollider.gameObject.transform.position.x * 400);
+                unitInfoPanel.GetComponent<RectTransform>().transform.parent.position = new Vector3(gridMovement.hit.point.x + selectedCollider.gameObject.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
             }
-            else if (gridMovement.selectedEnemy.transform.position.x == 0)
+            else if (selectedCollider.gameObject.transform.position.x == 0)
             {
-                Debug.Log(gridMovement.hit.point.x + gridMovement.selectedEnemy.transform.position.x + 400);
-                unitInfoPanel.GetComponent<RectTransform>().transform.parent.position = new Vector3(gridMovement.hit.point.x + gridMovement.selectedEnemy.transform.position.x + 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
+                Debug.Log(gridMovement.hit.point.x + selectedCollider.gameObject.transform.position.x + 400);
+                unitInfoPanel.GetComponent<RectTransform>().transform.parent.position = new Vector3(gridMovement.hit.point.x + selectedCollider.gameObject.transform.position.x + 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
             }
             else
             {
-                unitInfoPanel.GetComponent<RectTransform>().transform.parent.position = new Vector3(gridMovement.hit.point.x + gridMovement.selectedEnemy.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
+                unitInfoPanel.GetComponent<RectTransform>().transform.parent.position = new Vector3(gridMovement.hit.point.x + selectedCollider.gameObject.transform.position.x * 400, gridMovement.hit.point.y, gridMovement.hit.point.z);
             }
             unitInfoPanel.transform.position = new Vector3(gridMovement.hit.point.x + 100, 0, gridMovement.hit.point.z);
-
-            unitNameText.text = selectedObject.unitName;
-            unitLevel.text = selectedObject.unitLevel.ToString();
-            unitClass.text = selectedObject.unitClass;
-            unitAttack.text = selectedObject.unitAttack.ToString();
-            unitDefense.text = selectedObject.unitDefense.ToString();
-            unitHealth.text = selectedObject.unitHealth.ToString();
+            unitNameText.text = "Name: " + selectedObject.unitName;
+            unitLevel.text = "Lv: " + selectedObject.unitLevel.ToString();
+            unitClass.text = "Class: " + selectedObject.unitClass;
+            unitAttack.text = "Attack: " + selectedObject.unitAttack.ToString();
+            unitDefense.text = "Def: " + selectedObject.unitDefense.ToString();
+            unitHealth.text = "HP: " + selectedObject.unitHealth.ToString();
+            unitSpeed.text = "Speed: " + selectedObject.unitMovementSpeed.ToString();
+            unitCrit.text = "Crit Chance: " + selectedObject.unitCritChance.ToString();
+            unitDebuffResist.text = "Debuff Res.: " + selectedObject.unitSkillResist.ToString();
+            unitEvasion.text = "Evasion: " + selectedObject.unitEvasion.ToString();
         }
-        else
-        {
-            unitInfoPanel.gameObject.SetActive(false);
-        }
+        
+        
     }
 }
