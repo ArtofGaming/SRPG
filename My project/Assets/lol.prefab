@@ -62,9 +62,9 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b5ef1e598e2061449e440bf7eeab7cf, type: 2}
-  - {fileID: 2100000, guid: 97bd78de10840484abe94d417c56c81b, type: 2}
-  - {fileID: 2100000, guid: fb9a098bab19e9b4b98d3aa94c07b362, type: 2}
+  - {fileID: 2100000, guid: 06571523f409e1942881d81500e8db0e, type: 2}
+  - {fileID: 2100000, guid: 06571523f409e1942881d81500e8db0e, type: 2}
+  - {fileID: 2100000, guid: 06571523f409e1942881d81500e8db0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,10 +130,12 @@ MonoBehaviour:
   selected: 
   moved: 0
   movementMaterial: {fileID: 0}
-  selectedUnit: {fileID: 0}
-  selectedEnemy: {fileID: 0}
   attackPossible: 0
   unitClass: 
+  customization: {fileID: 0}
+  added: 0
+  collider: {fileID: 0}
+  infoPopulation: {fileID: 0}
 --- !u!1 &4980215052714549431
 GameObject:
   m_ObjectHideFlags: 0
