@@ -220,3 +220,101 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 97.541317 seconds.
+  path: Assets/Materials/lol-Material.001.mat
+  artifactKey: Guid(8ba19d15429278d46bdb6cf65fe2bd77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/lol-Material.001.mat using Guid(8ba19d15429278d46bdb6cf65fe2bd77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0814f2346a5e3ca81c21acbd10ba64de') in 0.156701 seconds 
+  Import took 0.168892 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/Materials/lol-Material.002.mat
+  artifactKey: Guid(a778472d227cf8d41869cd1ab6e21740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/lol-Material.002.mat using Guid(a778472d227cf8d41869cd1ab6e21740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3145857ca04564ff72c5d593c4b6aa8') in 0.010444 seconds 
+  Import took 0.014200 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.271571 seconds.
+  path: Assets/lol.prefab
+  artifactKey: Guid(66614928e1e1dc442a962722845f13e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/lol.prefab using Guid(66614928e1e1dc442a962722845f13e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd11cfef7077f639bf7bdddb6f5eea7fd') in 0.021046 seconds 
+  Import took 0.026039 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.483426 seconds.
+  path: Assets/lol.prefab
+  artifactKey: Guid(66614928e1e1dc442a962722845f13e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/lol.prefab using Guid(66614928e1e1dc442a962722845f13e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffa82398579a931570c622ad22edfe51') in 0.010918 seconds 
+  Import took 0.015711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.176915 seconds.
+  path: Assets/lol.prefab
+  artifactKey: Guid(66614928e1e1dc442a962722845f13e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/lol.prefab using Guid(66614928e1e1dc442a962722845f13e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c616ee31bf5e580915e5f4ba40e621f') in 0.010954 seconds 
+  Import took 0.017292 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006188 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.866 seconds
+Domain Reload Profiling:
+	ReloadAssembly (866ms)
+		BeginReloadAssembly (99ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (719ms)
+			LoadAssemblies (69ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (251ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (256ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (165ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.44 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2840 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 129.5 MB.
+System memory in use after: 129.7 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3516.
+Total: 2.926100 ms (FindLiveObjects: 0.189700 ms CreateObjectMapping: 0.080700 ms MarkObjects: 2.638600 ms  DeleteObjects: 0.015800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
