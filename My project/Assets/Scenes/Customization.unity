@@ -6222,11 +6222,11 @@ PrefabInstance:
     - target: {fileID: 6876867688801721942, guid: 66614928e1e1dc442a962722845f13e2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 06571523f409e1942881d81500e8db0e, type: 2}
+      objectReference: {fileID: 2100000, guid: fb9a098bab19e9b4b98d3aa94c07b362, type: 2}
     - target: {fileID: 6876867688801721942, guid: 66614928e1e1dc442a962722845f13e2, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 06571523f409e1942881d81500e8db0e, type: 2}
+      objectReference: {fileID: 2100000, guid: 2b5ef1e598e2061449e440bf7eeab7cf, type: 2}
     - target: {fileID: 8210113076065099915, guid: 66614928e1e1dc442a962722845f13e2, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.005
