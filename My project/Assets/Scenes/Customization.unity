@@ -854,7 +854,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 40.85
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3244,12 +3244,12 @@ MonoBehaviour:
   selected: 
   moved: 0
   movementMaterial: {fileID: 0}
-  selectedUnit: {fileID: 0}
-  selectedEnemy: {fileID: 0}
   attackPossible: 0
   unitClass: 
   customization: {fileID: 0}
+  added: 0
   collider: {fileID: 1240750571}
+  infoPopulation: {fileID: 0}
 --- !u!1 &1244762054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,7 +3334,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 40.85
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3418,12 +3418,12 @@ MonoBehaviour:
   selected: 
   moved: 0
   movementMaterial: {fileID: 0}
-  selectedUnit: {fileID: 0}
-  selectedEnemy: {fileID: 0}
   attackPossible: 0
   unitClass: 
   customization: {fileID: 0}
+  added: 0
   collider: {fileID: 1258958048}
+  infoPopulation: {fileID: 0}
 --- !u!1 &1282398158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,12 +4334,12 @@ MonoBehaviour:
   selected: 
   moved: 0
   movementMaterial: {fileID: 0}
-  selectedUnit: {fileID: 0}
-  selectedEnemy: {fileID: 0}
   attackPossible: 0
   unitClass: 
   customization: {fileID: 0}
+  added: 0
   collider: {fileID: 1615243561}
+  infoPopulation: {fileID: 0}
 --- !u!1 &1662964944
 GameObject:
   m_ObjectHideFlags: 0
@@ -6222,11 +6222,11 @@ PrefabInstance:
     - target: {fileID: 6876867688801721942, guid: 66614928e1e1dc442a962722845f13e2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 97bd78de10840484abe94d417c56c81b, type: 2}
+      objectReference: {fileID: 2100000, guid: 06571523f409e1942881d81500e8db0e, type: 2}
     - target: {fileID: 6876867688801721942, guid: 66614928e1e1dc442a962722845f13e2, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: fb9a098bab19e9b4b98d3aa94c07b362, type: 2}
+      objectReference: {fileID: 2100000, guid: 06571523f409e1942881d81500e8db0e, type: 2}
     - target: {fileID: 8210113076065099915, guid: 66614928e1e1dc442a962722845f13e2, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.005
